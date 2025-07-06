@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.15;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  font-family: 'Myriad Pro', Arial, sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset for common elements that have default margins/paddings */
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+// Apply Quattrocento to headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Quattrocento', serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// SCSS Variables
+$primary-dark: #39304A;
+$primary-accent: #DA3E52;
+$light-text: #F4F0BB;
+$heading-color: #AAFAC8;
+$hover-color: #607B7D;
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes letterJump {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-10px); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(-5px); }
+  80% { transform: translateY(0); }
+}
+
+.global-divider1 {
+  padding: 10px;
+  background-color: $primary-accent;
+}
+
+.global-divider2 {
+  padding: 10px;
+  background-color: $hover-color;
+}
+
+.randombottom {
+  margin-bottom: 130px;
+}

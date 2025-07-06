@@ -1,0 +1,112 @@
+@use "sass:color";
+
+$primary-dark: #39304A;
+$primary-accent: #DA3E52;
+$light-text: #F4F0BB;
+$heading-color: #AAFAC8;
+$hover-color: #607B7D;
+$white: #FFFFFF;
+$black: #000000;
+$shadow: #373737;
+
+.policy-container {
+    max-width: 900px;
+    margin: 40px auto;
+    margin-top: 100px;
+    padding: 30px;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba($black, 0.08);
+
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+
+    @media (max-width: 768px) {
+        margin: 20px 15px;
+        margin-top: 100px;
+        padding: 20px;
+    }
+}
+
+h1 {
+    color: $primary-dark;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        font-size: 2em;
+    }
+}
+
+.effective-date {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+h2 {
+    color: $primary-accent;
+    font-size: 1.8em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+
+    @media (max-width: 768px) {
+        font-size: 1.5em;
+        margin-top: 30px;
+    }
+}
+
+h3 {
+    color: $primary-dark;
+    font-size: 1.3em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+        font-size: 1.1em;
+        margin-top: 20px;
+    }
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+    color: $primary-accent;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.contact-info {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,264 @@
+@use "sass:color";
+
+/*
+Color Scheme: 
+#DA3E52
+#39304A
+#607B7D
+#AAFAC8
+#F4F0BB 
+*/
+
+$primary-dark: #39304A;
+$primary-accent: #DA3E52;
+$light-text: #F4F0BB;
+$heading-color: #AAFAC8;
+$hover-color: #607B7D;
+
+.main-footer {
+  background-color: $primary-dark;
+  color: $light-text;
+  padding: 40px 20px 9px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-top: 5px solid $hover-color;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-section {
+  margin-bottom: 0;
+
+  h3, h4 {
+    color: $heading-color;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  p, li, a {
+    color: $light-text;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+}
+
+.footer-heading-border {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-list-spacing {
+  margin-top: 15px;
+}
+
+.brand-section {
+  flex: 1 1 200px;
+  min-width: 180px;
+  text-align: center;
+  color: #39304A;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navigation-section {
+  flex: 1 1 150px;
+  min-width: 120px;
+}
+
+.legal-links-section {
+  flex: 1 1 120px;
+  min-width: 100px;
+}
+
+.logo-container {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.footer-logo {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.contact-newsletter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1.5 1 280px;
+  min-width: 250px;
+}
+
+.contact-newsletter-group > div {
+  flex: none;
+  min-width: unset;
+  margin-bottom: 0;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+
+  input[type="email"] {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $light-text;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex-grow: 1;
+    min-width: 0;
+
+    &::placeholder {
+      color: rgba(244, 240, 187, 0.7);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $heading-color;
+      box-shadow: 0 0 1px $heading-color;
+    }
+  }
+
+  button {
+    background-color: $hover-color;
+    color: $light-text;
+    border-radius: 8px;
+    border: 2px solid $hover-color;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+    min-width: 100px;
+    text-align: center;
+
+    &:hover {
+      background-color: color.adjust($hover-color, $lightness: -10%);
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: $light-text;
+}
+
+
+/* Responsive adjustments */
+@media (min-width: 769px) {
+  .newsletter-form {
+    flex-direction: row;
+    width: auto;
+    max-width: unset;
+    margin: 0;
+  }
+
+  .brand-section {
+    flex: 1 1 200px;
+  }
+
+  .navigation-section {
+    flex: 1 1 150px;
+  }
+
+  .legal-links-section {
+    flex: 1 1 120px;
+  }
+
+  .contact-newsletter-group {
+    flex: 1.5 1 280px;
+  }
+
+  .footer-content {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-section {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .contact-newsletter-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    min-width: unset;
+  }
+
+  .contact-newsletter-group .contact-info,
+  .contact-newsletter-group .newsletter-section {
+    width: 100%;
+    min-width: unset;
+    text-align: center;
+  }
+
+  .navigation-section ul,
+  .legal-links-section ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    input[type="email"],
+    button {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+  }
+
+  /* Remove borders on mobile for better stacking */
+  .brand-section {
+    border-left: none;
+    border-right: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

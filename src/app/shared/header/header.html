@@ -1,0 +1,42 @@
+<header class="main-header" [class.scrolled]="isScrolled">
+    <div class="header-container">
+        <div class="logo">
+          <a routerLink="/home">
+            <img src="assets/logowhitelabel2.webp" alt="Verveance Logo">
+          </a>
+        </div>
+
+        <nav class="main-nav desktop-nav">
+          <ul>
+            <li><a routerLink="/home" routerLinkActive="active-link" (click)="closeMenu()">Home</a></li>
+            <li><a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()">Services</a></li>
+            <li><a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</a></li>
+            <li><a routerLink="/portfolio" routerLinkActive="active-link" (click)="closeMenu()">Portfolio</a></li>
+            <li><a routerLink="/in-development" routerLinkActive="active-link" (click)="closeMenu()">In Development</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta-button desktop-cta">
+          <a routerLink="/contact" class="btn btn-primary" (click)="closeMenu()">Contact Us</a>
+        </div>
+
+        <div class="hamburger-menu" (click)="toggleMenu()" [class.hidden]="isMenuOpen"> <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav class="mobile-nav-overlay" [class.open]="isMenuOpen">
+          <div class="close-menu" (click)="closeMenu()">
+            <i class="fa-solid fa-times"></i> </div>
+          <ul>
+            <li><a routerLink="/home" routerLinkActive="active-link" (click)="closeMenu()">Home</a></li>
+            <li><a routerLink="/services" routerLinkActive="active-link" (click)="closeMenu()">Services</a></li>
+            <li><a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</a></li>
+            <li><a routerLink="/portfolio" routerLinkActive="active-link" (click)="closeMenu()">Portfolio</a></li>
+            <li><a routerLink="/in-development" routerLinkActive="active-link" (click)="closeMenu()">In Development</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active-link" (click)="closeMenu()">Contact</a></li>
+            <li class="mobile-cta-item">
+              <a routerLink="/contact" class="btn btn-primary" (click)="closeMenu()">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+</header>

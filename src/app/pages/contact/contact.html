@@ -1,0 +1,155 @@
+<div class="randombottom"></div>
+
+<section class="contact-hero-section">
+  <div class="container">
+    <h1 class="hero-heading">Get In Touch</h1>
+    <p class="hero-subheading">
+      Have a question, a project idea, or just want to say hello? Choose an option below or use our direct contact info. We're eager to hear from you!
+    </p>
+  </div>
+</section>
+
+<section class="contact-cta-buttons-section">
+  <div class="container buttons-grid">
+    <button class="cta-card" (click)="startEmailConsultation()">
+      <div class="card-icon"><i class="fas fa-envelope-open-text"></i></div>
+      <h3 class="card-title">Email Consultation</h3>
+      <p class="card-description">Email your inquiry and get a personal reply at no charge.</p>
+      <span class="card-action">Start Consultation <i class="fas fa-arrow-right"></i></span>
+    </button>
+
+    <button class="cta-card" (click)="startDevelopmentInquiry()">
+      <div class="card-icon"><i class="fas fa-code"></i></div>
+      <h3 class="card-title">Web App / Software Inquiry</h3>
+      <p class="card-description">Tell us about your project requirements and get a custom quote.</p>
+      <span class="card-action">Make an Inquiry <i class="fas fa-arrow-right"></i></span>
+    </button>
+  </div>
+</section>
+
+<br>
+<br>
+<div class="empty-space" #emptyspace> </div>
+<br>
+<br>
+
+<section class="contact-form-section" #contactFormSection *ngIf="activeFormType" [class.form-animated]="animateForm">
+  <div class="container contact-grid">
+    <div class="form-wrapper">
+      <ng-container *ngIf="activeFormType === 'emailConsultation'">
+        <h2 class="form-title">Email Consultation</h2>
+        <p class="form-description">Send us a quick message for general inquiries or initial consultations.</p>
+        <form [formGroup]="emailConsultationForm" (ngSubmit)="onSubmit('emailConsultation')" class="contact-form">
+          <div class="form-group">
+            <label for="emailConsultName">Your Name<span class="required-asterisk">*</span></label>
+            <input type="text" id="emailConsultName" formControlName="name" placeholder="John Doe">
+            <div *ngIf="emailConsultationForm.get('name')?.invalid && (emailConsultationForm.get('name')?.dirty || emailConsultationForm.get('name')?.touched)" class="error-message">
+              Name is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emailConsultOrg">Organization (Optional)</label>
+            <input type="text" id="emailConsultOrg" formControlName="organization" placeholder="My SaaS LLC">
+          </div>
+
+          <div class="form-group">
+            <label for="emailConsultEmail">Your Email<span class="required-asterisk">*</span></label>
+            <input type="email" id="emailConsultEmail" formControlName="email" placeholder="john.doe@example.com">
+            <div *ngIf="emailConsultationForm.get('email')?.invalid && (emailConsultationForm.get('email')?.dirty || emailConsultationForm.get('email')?.touched)" class="error-message">
+              <span *ngIf="emailConsultationForm.get('email')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="emailConsultationForm.get('email')?.errors?.['email']">Enter a valid email address.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emailConsultSubject">Subject<span class="required-asterisk">*</span></label>
+            <input type="text" id="emailConsultSubject" formControlName="subject" placeholder="Project Inquiry, Support, etc.">
+            <div *ngIf="emailConsultationForm.get('subject')?.invalid && (emailConsultationForm.get('subject')?.dirty || emailConsultationForm.get('subject')?.touched)" class="error-message">
+              Subject is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emailConsultMessage">Your Message<span class="required-asterisk">*</span></label>
+            <textarea id="emailConsultMessage" formControlName="message" rows="6" placeholder="Tell us more about your needs..."></textarea>
+            <div *ngIf="emailConsultationForm.get('message')?.invalid && (emailConsultationForm.get('message')?.dirty || emailConsultationForm.get('message')?.touched)" class="error-message">
+              Message is required.
+            </div>
+          </div>
+
+          <button type="submit" class="main-cta-button" [disabled]="emailConsultationForm.invalid">Send Message</button>
+        </form>
+      </ng-container>
+
+      <ng-container *ngIf="activeFormType === 'developmentInquiry'">
+        <h2 class="form-title">Web App / Software Inquiry</h2>
+        <p class="form-description">Tell us about your project requirements and get a custom quote.</p>
+        <form [formGroup]="developmentInquiryForm" (ngSubmit)="onSubmit('developmentInquiry')" class="contact-form">
+          <div class="form-group">
+            <label for="devInquiryName">Name of Proprietor/Representative<span class="required-asterisk">*</span></label>
+            <input type="text" id="devInquiryName" formControlName="name" placeholder="John Doe">
+            <div *ngIf="developmentInquiryForm.get('name')?.invalid && (developmentInquiryForm.get('name')?.dirty || developmentInquiryForm.get('name')?.touched)" class="error-message">
+              Name is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="devInquiryOrg">Organization (Optional)</label>
+            <input type="text" id="devInquiryOrg" formControlName="organization" placeholder="My SaaS LLC">
+          </div>
+
+          <div class="form-group">
+            <label for="devInquiryEmail">Your Email<span class="required-asterisk">*</span></label>
+            <input type="email" id="devInquiryEmail" formControlName="email" placeholder="john.doe@example.com">
+            <div *ngIf="developmentInquiryForm.get('email')?.invalid && (developmentInquiryForm.get('email')?.dirty || developmentInquiryForm.get('email')?.touched)" class="error-message">
+              <span *ngIf="developmentInquiryForm.get('email')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="developmentInquiryForm.get('email')?.errors?.['email']">Enter a valid email address.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="devInquirySubject">Subject<span class="required-asterisk">*</span></label>
+            <input type="text" id="devInquirySubject" formControlName="subject" placeholder="e.g., E-commerce Platform, Internal CRM, Mobile App">
+            <div *ngIf="developmentInquiryForm.get('subject')?.invalid && (developmentInquiryForm.get('subject')?.dirty || developmentInquiryForm.get('subject')?.touched)" class="error-message">
+              Project Title is required.
+            </div>
+          </div>
+
+          <div class="form-group radio-group">
+            <p class="radio-label">Type of Project:<span class="required-asterisk">*</span></p>
+            <label class="radio-option"><input type="radio" formControlName="projectType" value="website_webapp">Static Website / Web Application</label>
+            <label class="radio-option"><input type="radio" formControlName="projectType" value="custom_software">Custom Software</label>
+            <div *ngIf="developmentInquiryForm.get('projectType')?.invalid && (developmentInquiryForm.get('projectType')?.dirty || developmentInquiryForm.get('projectType')?.touched)" class="error-message">
+              Please select a project type.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="devInquiryMessage">Project Details (e.g., goals, desired features, other requirements)<span class="required-asterisk">*</span></label>
+            <textarea id="devInquiryMessage" formControlName="message" rows="8" placeholder="Tell us more about your vision..."></textarea>
+            <div *ngIf="developmentInquiryForm.get('message')?.invalid && (developmentInquiryForm.get('message')?.dirty || developmentInquiryForm.get('message')?.touched)" class="error-message">
+              Project details are required.
+            </div>
+          </div>
+
+          <button type="submit" class="main-cta-button" [disabled]="developmentInquiryForm.invalid">Submit Inquiry</button>
+        </form>
+      </ng-container>
+    </div>
+
+    <div class="contact-info-wrapper">
+      <h2 class="info-title">Other Ways to Connect</h2>
+      <div class="info-item">
+        <i class="fas fa-envelope info-icon"></i>
+        <div class="info-details">
+          <h3>Email Directly</h3>
+          <p><a href="mailto:contact@verveance.com">contact&#64;verveance.com</a></p>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://linkedin.com/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
