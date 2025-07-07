@@ -78,7 +78,10 @@
             </div>
           </div>
 
-          <button type="submit" class="main-cta-button" [disabled]="emailConsultationForm.invalid">Send Message</button>
+          <button type="submit" class="main-cta-button" [disabled]="emailConsultationForm.invalid || isLoading">
+            <span *ngIf="!isLoading">Send Message</span>
+            <span *ngIf="isLoading">Sending... <i class="fas fa-spinner fa-spin"></i></span>
+          </button>
         </form>
       </ng-container>
 
@@ -110,7 +113,7 @@
 
           <div class="form-group">
             <label for="devInquirySubject">Subject<span class="required-asterisk">*</span></label>
-            <input type="text" id="devInquirySubject" formControlName="subject" placeholder="e.g., E-commerce Platform, Internal CRM, Mobile App">
+            <input type="text" id="devInquirySubject" formControlName="subject" placeholder="e.g., E-commerce Platform, Internal CRM, Booking App">
             <div *ngIf="developmentInquiryForm.get('subject')?.invalid && (developmentInquiryForm.get('subject')?.dirty || developmentInquiryForm.get('subject')?.touched)" class="error-message">
               Project Title is required.
             </div>
@@ -133,7 +136,10 @@
             </div>
           </div>
 
-          <button type="submit" class="main-cta-button" [disabled]="developmentInquiryForm.invalid">Submit Inquiry</button>
+          <button type="submit" class="main-cta-button" [disabled]="developmentInquiryForm.invalid || isLoading">
+            <span *ngIf="!isLoading">Submit Inquiry</span>
+            <span *ngIf="isLoading">Submitting... <i class="fas fa-spinner fa-spin"></i></span>
+          </button>
         </form>
       </ng-container>
     </div>
@@ -153,3 +159,21 @@
     </div>
   </div>
 </section>
+
+<div class="modal-overlay" *ngIf="showNotificationModal" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2 [class.success]="isSuccessNotification" [class.error]="!isSuccessNotification">
+        <span *ngIf="isSuccessNotification"><i class="fas fa-check-circle"></i> Success!</span>
+        <span *ngIf="!isSuccessNotification"><i class="fas fa-exclamation-triangle"></i> Error!</span>
+      </h2>
+      <button class="close-button" (click)="closeModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <p>{{ notificationMessage }}</p>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-button" (click)="closeModal()">OK</button>
+    </div>
+  </div>
+</div>
